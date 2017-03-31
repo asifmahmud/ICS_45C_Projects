@@ -1,0 +1,17 @@
+#ifndef OUTPUTS_HPP
+#define OUTPUTS_HPP
+
+int get_cutpoint_number();
+void score_generator(std::string* student_info, int size, double num_score, double* student_grade);
+
+void print_scores(std::string* student_info, double* total_scores, double* weighted_scores, double** raw_scores, int number_of_students, int number_of_scores);
+
+
+
+
+
+
+
+
+
+#endif

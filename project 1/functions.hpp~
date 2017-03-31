@@ -1,0 +1,25 @@
+#include <vector>
+#ifndef FUNCTIONS_HPP
+#define FUNCTIONS_HPP
+using namespace std;
+string get_s_lat(string s_lat);
+string get_s_lon(string s_lon);
+string get_s_loc(string s_loc);
+string get_t_num(string t_num);
+string get_t_lat(string t_lat);
+string get_t_lon(string t_lon);
+string get_t_loc(string(t_loc);
+double to_rad(double val);
+int d_calc();
+double d_converter(string value);
+string starting_lat;
+string starting_lon;
+		 string starting_loc;
+		 double closest_distaance, farthest_distance;
+		 string closets_lat, closest_lon, closest_loc, farthest_lat, farthest_lon, farthest_loc;
+
+		 double starting_dis;
+		 double reference_distance();
+
+
+#endif

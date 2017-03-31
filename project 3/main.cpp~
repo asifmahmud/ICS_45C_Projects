@@ -1,0 +1,27 @@
+#include <iostream>
+#include "inputs.hpp"
+
+
+
+int main()
+{
+	//HashMap hm, gm;
+	//hm.add("am2567", "anzam");
+	//gm.add("sd", "asd");
+	//std::cout << hm.value("am2567") << std::endl;
+	//gm = hm;
+	
+	Commands c;
+	while (1)
+	{
+		std::string s = c.return_input();
+		if (s == "QUIT")
+		{
+			std::cout << "GOODBYE" << std::endl;
+			break;
+		}
+		c.parse_input(s);
+
+	}
+	return 0;
+}

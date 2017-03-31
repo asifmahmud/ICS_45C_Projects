@@ -1,0 +1,19 @@
+#include <iostream>
+#include <vector>
+#include <functions.hpp>
+using namespace std;
+//Asif Mahmud 70556749
+
+int main()
+{
+  s_string_parser();
+  cout << "string parser has been executed" << endl;
+  cout << starting_lat << endl;
+  int t = get_t_num();
+  cout << "get t num has been executed" << endl;
+  cout << t << endl;
+  reference_distance();
+  d_calc(t);
+  return 0;
+ } 
+

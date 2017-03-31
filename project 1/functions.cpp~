@@ -1,0 +1,99 @@
+#include <iostream>
+#include <cmath>
+#include <tuple>
+#include <vector>
+#include"functions.hpp"
+
+using namespace std;
+
+string starting_lat;
+string starting_lon;
+string starting_loc;
+string t_lat;
+string t_lon;
+string t_loc;
+int target_num;
+
+int get_input()
+{
+  cin >> starting_lat >> starting_lon >> starting_loc;
+  cin >> target_num;
+  return 0;
+}
+
+tuple<int, int, vector<string>, vector<string>> d_calc()
+{
+  vector<string> v;
+  vector<string> farthest_vector;
+  vector<string> closest_vector;
+  int closest_distance = 0;
+  int farthest_distance = 0;
+  int distance_so_far;
+  for (unsigned i = 0; i < target_num; i++)
+    {
+      distance_so_far = 0;
+      cin >> t_lat >> t_lon >> t_loc;
+      v.push_back(t_lat); v.push_back(t_lon); v.push_back(t_loc);
+      distance_so_far = closest_loc(d_converter(starting_lat), d_converter(v[0]),
+				    d_converter(starting_lon), d_converter(v[1]));
+      
+      if (distance_so_far < closest_distance)
+	{
+	  closest_distance = distance_so_far;
+	  closest_vector = v;
+	}
+      if (distance_so_far > closest_distance)
+	{
+	  farthest_distance = distance_so_far;
+	  farthest_vector = v;
+	}
+      v.clear();
+      
+    }
+      return make_tuple(closest_distance, farthest_distance, closest_vector, farthest_vector);
+}
+
+
+double closest_loc(double start_lat, double end_lat, double start_lon,
+		double end_lon)
+{
+  double dlat = to_rad( end_lat) -to_rad( start_lat);
+  double dlon =to_rad(end_lon) -to_rad( start_lon);
+  double a = sin(dlat/2)* sin(dlat/2)+ cos(to_rad(start_lat)) * cos(to_rad(end_lat)) *sin(dlon/2)* sin(dlon/2);
+  double c = 2 * atan2(sqrt(a), sqrt(1-a));
+  double radius = 3959.9;
+  double distance = radius * c;
+  return distance;
+}
+
+double d_converter(string value)
+{
+  double s_lat = stod(value);
+  return s_lat;
+}
+
+
+double to_rad(double val)
+{
+  double rad = val *((atan(1)*4)/180);
+  return rad;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
